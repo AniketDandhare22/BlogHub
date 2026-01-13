@@ -12,22 +12,30 @@ Router.get(
   "/google/callback",
   passport.authenticate("google", { 
     session: false, 
-    failureRedirect: "https://blog-hub-pearl.vercel.app/auth" 
+    failureRedirect: `${process.env.FRONTEND_URL}/login?error=auth_failed`
   }),
   (req, res) => {
     const user = req.user;
+    
+    // 1. Generate Token
     const token = jwt.sign(
       { id: user._id},
       process.env.SECRET_KEY, 
       { expiresIn: "7d" }
     );
+
+    // 2. Set Cookie (CRITICAL FIXES HERE)
     res.cookie("token", token, {
-        httpOnly: true, 
-        sameSite: "strict",
-        secure: false,
-        maxAge: 7 * 24 * 60 * 60 * 1000 
+      httpOnly: true, 
+      sameSite: "None",  // CHANGED: "strict" -> "None" (Required for cross-site)
+      secure: true,      // CHANGED: false -> true (Required when sameSite is None)
+      maxAge: 7 * 24 * 60 * 60 * 1000 
     });
-    res.redirect(process.env.FRONT_PORT); 
+
+    // 3. Redirect to the correct Full URL
+    // Make sure FRONTEND_URL is set in Render to "https://blog-hub-pearl.vercel.app"
+    const redirectURL = process.env.FRONTEND_URL || 'http://localhost:5173';
+    res.redirect(redirectURL); 
   }
 );
 

@@ -12,7 +12,7 @@ import passport from "./config/passport.js";
 const app =express();
 
 app.use(cors({
-  origin: process.env.FRONT_PORT, // frontend port
+  origin: process.env.FRONTEND_URL, // frontend port
   credentials: true
 }));
 
