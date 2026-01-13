@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 //token creation
-const createToken = (id, remember) => {
+const createToken = (id, remember=false) => {
     return jwt.sign(
         { id }, 
         process.env.SECRET_KEY, 
@@ -23,7 +23,7 @@ export const register =async (req,res)=>{
         let user = await userModel.create({
         username,email,password:hash,
         });
-        const token = createToken(user._id ,false)
+        const token = createToken(user._id)
         res.cookie("token", token, {
         httpOnly: true,
         secure: true,       // REQUIRED: Tells browser "This is safe for HTTPS"
