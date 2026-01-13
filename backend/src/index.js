@@ -10,6 +10,11 @@ import cors from "cors";// ... specific imports
 import passport from "./config/passport.js"; 
 
 const app =express();
+const PORT = process.env.PORT || process.env.LOCAL_PORT || 8080;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 app.use(cors({
   origin: "https://blog-hub-pearl.vercel.app", // ⚠️ MUST be your exact Vercel URL (no trailing slash)
@@ -31,7 +36,4 @@ app.use("/post",postRoute);
 app.use("/aiFeature",generatorRoute);
 app.use("/payment",paymentRoute);
 
-app.listen(process.env.PORT,(res)=>{
-    console.log("running on port",process.env.PORT)
-});
 
