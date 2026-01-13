@@ -62,7 +62,7 @@ export const login =async (req,res)=>{
         maxAge: cookieDuration // <--- This applies the checkbox logic
         });
         
-        res.status(200).json({ message: "Credentials Match!", user: { username: checkUser.username, email: checkUser.email } });
+        res.status(200).json({user: { username: checkUser.username, email: checkUser.email } });
 
     }
     catch(err){
