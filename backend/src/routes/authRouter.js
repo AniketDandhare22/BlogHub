@@ -12,7 +12,7 @@ Router.get(
   "/google/callback",
   passport.authenticate("google", { 
     session: false, 
-    failureRedirect: "http://localhost:5173/auth" 
+    failureRedirect: "https://blog-hub-pearl.vercel.app/auth" 
   }),
   (req, res) => {
     const user = req.user;
@@ -27,7 +27,7 @@ Router.get(
         secure: false,
         maxAge: 7 * 24 * 60 * 60 * 1000 
     });
-    res.redirect("http://localhost:5173/"); 
+    res.redirect(process.env.FRONT_PORT); 
   }
 );
 
