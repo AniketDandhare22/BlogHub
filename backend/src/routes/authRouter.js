@@ -36,6 +36,6 @@ Router.delete("/deleteAccount",verifyToken,deleteAcc);
 Router.put("/updateUsername",verifyToken,updateUserName);
 Router.post("/login",login);
 Router.get("/me",verifyToken,getMe);
-Router.get("/logout", logout);
+Router.get("/logout",verifyToken, logout);
 
 export default Router;
