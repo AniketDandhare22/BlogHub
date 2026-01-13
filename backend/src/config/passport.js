@@ -10,7 +10,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback", // Matches your Google Console setting
+      callbackURL: "https://bloghub-tpvb.onrender.com/auth/google/callback", // Matches your Google Console setting
     },
     async (accessToken, refreshToken, profile, done) => {
       try {

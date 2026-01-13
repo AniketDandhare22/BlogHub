@@ -12,7 +12,7 @@ Router.get(
   "/google/callback",
   passport.authenticate("google", { 
     session: false, 
-    failureRedirect: `${process.env.FRONTEND_URL}/login?error=auth_failed`
+    failureRedirect: `${process.env.FRONTEND_URL}/auth?error=auth_failed`
   }),
   (req, res) => {
     const user = req.user;
