@@ -1,0 +1,254 @@
+[
+  {
+    "id": 1,
+    "type": "blog",
+    "title": "Getting Started with React and TypeScript",
+    "category": "Technology",
+    "description": "React with TypeScript brings type safety, better tooling, and scalable architecture to modern frontend development. Learn how to structure components, type props and state, and follow best practices used in real-world production apps.",
+    "image": "https://cdn.magicui.design/assets/hr087dcqaer.jpg",
+    "author": "Sarah Johnson",
+    "date": "Dec 10, 2025",
+    "readTime": "8 min",
+    "likes": 245,
+    "details": {
+      "sections": [
+        {
+          "title": "Introduction",
+          "content": "React and TypeScript are a powerful combination for building scalable, maintainable, and production-ready frontend applications. By adding TypeScript to your React projects, you gain static typing which helps catch errors early during development. This improves code reliability and maintainability, making collaboration with larger teams much smoother."
+        },
+        {
+          "title": "Why TypeScript Matters",
+          "content": "TypeScript brings static type checking to JavaScript, allowing developers to detect bugs at compile time rather than runtime. With TypeScript, you can define the types of props, state, and functions, which enhances developer productivity and reduces runtime errors. It also improves editor support, offering better autocomplete and IntelliSense."
+        },
+        {
+          "title": "Setting Up Your First Project",
+          "content": "You can start a new React + TypeScript project using tools like Vite or Create React App. These tools provide preconfigured setups, enabling you to focus on writing application logic rather than project configuration. Components are written in .tsx files, allowing you to define props and state with type safety."
+        },
+        {
+          "title": "Common Pitfalls",
+          "content": "Beginners often make mistakes such as using 'any' everywhere, ignoring compiler warnings, or overcomplicating simple components. It’s important to start small and let TypeScript guide you, gradually adopting type safety. Properly typing API responses, props, and state ensures more predictable and maintainable code."
+        },
+        {
+          "title": "Conclusion",
+          "content": "Starting with React and TypeScript may seem overwhelming, but once the fundamentals are understood, it becomes an essential tool for building high-quality applications. By integrating TypeScript into your workflow, you ensure your code is more reliable, maintainable, and scalable. Consistency and gradual adoption are key."
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "type": "video",
+    "title": "For Bigger Meltdowns",
+    "category": "video",
+    "description": "Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when you want to make Buster's big meltdowns even bigger.",
+    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+    "thumbnail": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerMeltdowns.jpg",
+    "author": "Google",
+    "date": "Dec 11, 2025",
+    "likes": 0
+  },
+  {
+    "id": 3,
+    "type": "blog",
+    "title": "Why Tailwind CSS Is a Game Changer",
+    "category": "Design",
+    "description": "Tailwind CSS’s utility-first approach makes styling faster and more consistent. This article explores why developers prefer Tailwind over traditional CSS and how to write maintainable utility-based UI systems.",
+    "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?w=900",
+    "author": "Alex Martinez",
+    "date": "Dec 12, 2025",
+    "readTime": "6 min",
+    "likes": 189,
+    "details": {
+      "sections": [
+        {
+          "title": "Introduction to Tailwind",
+          "content": "Tailwind CSS is a utility-first CSS framework that enables developers to rapidly build custom designs without leaving HTML. Unlike traditional CSS, which relies on writing separate style rules, Tailwind provides prebuilt utility classes for margin, padding, colors, typography, and more. This leads to faster development cycles and consistent styling."
+        },
+        {
+          "title": "Utility-First Benefits",
+          "content": "Using utility classes encourages a modular approach to styling. Developers can compose styles directly in the markup, reducing the need for lengthy CSS files. This approach also makes it easier to maintain and scale applications because the design is standardized and predictable."
+        },
+        {
+          "title": "Best Practices",
+          "content": "To make the most of Tailwind, it is important to use semantic class names, leverage responsive design utilities, and customize the configuration file for brand-specific design tokens. Combining Tailwind with component libraries or frameworks like React ensures reusability and consistency across your app."
+        },
+        {
+          "title": "Conclusion",
+          "content": "Tailwind CSS has revolutionized the way developers approach styling by emphasizing utility-first methodology. It reduces the friction of traditional CSS, improves maintainability, and allows rapid prototyping. By understanding and adopting Tailwind’s principles, developers can create robust, scalable, and visually appealing user interfaces."
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "type": "video",
+    "title": "Sintel",
+    "category": "video",
+    "description": "Sintel is an independently produced short film by the Blender Foundation, improving and validating open source 3D technology.",
+    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+    "thumbnail": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/Sintel.jpg",
+    "author": "Blender Foundation",
+    "date": "Dec 13, 2025",
+    "likes": 0
+  },
+  {
+    "id": 5,
+    "type": "blog",
+    "title": "Building Scalable React Apps with Context API",
+    "category": "Trending",
+    "description": "As applications grow, managing global state becomes complex. This guide explains how to use React Context API with useReducer to build scalable, maintainable state architecture without overengineering.",
+    "image": "https://cdn.magicui.design/assets/hz68wjs8djp.jpg?w=3840&q=75",
+    "author": "Daniel Kim",
+    "date": "Dec 14, 2025",
+    "readTime": "7 min",
+    "likes": 312,
+    "details": {
+      "sections": [
+        {
+          "title": "Why Global State Matters",
+          "content": "As applications become complex, managing state across multiple components can be challenging. React Context API offers a simple and efficient way to share data across the component tree without prop drilling. It is particularly useful for managing global state such as user authentication, theme settings, and language preferences."
+        },
+        {
+          "title": "Using Context with useReducer",
+          "content": "Combining Context API with useReducer allows for scalable state management. useReducer provides predictable state updates, while Context makes the state accessible throughout the component tree. This combination reduces boilerplate, improves maintainability, and simplifies debugging."
+        },
+        {
+          "title": "Best Practices",
+          "content": "Always separate your Context logic from UI components. Define clear action types, avoid deeply nested state, and use custom hooks to encapsulate common logic. This ensures your application remains maintainable and scalable even as it grows."
+        },
+        {
+          "title": "Conclusion",
+          "content": "Using Context API with useReducer empowers developers to build scalable React applications. By centralizing state management and adopting structured patterns, teams can efficiently handle complex apps while keeping code clean and maintainable."
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "type": "video",
+    "title": "Subaru Outback On Street And Dirt",
+    "category": "video",
+    "description": "Smoking Tire takes the all-new Subaru Outback to the highest point to see how it performs.",
+    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+    "thumbnail": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/SubaruOutbackOnStreetAndDirt.jpg",
+    "author": "Garage419",
+    "date": "Dec 15, 2025",
+    "likes": 0
+  },
+  {
+    "id": 7,
+    "type": "blog",
+    "title": "From Side Project to Startup: Lessons Learned",
+    "category": "Business",
+    "description": "Turning a side project into a startup requires more than just code. Learn lessons on product validation, handling technical debt, user feedback loops, and scaling decisions every developer should know.",
+    "image": "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=900",
+    "author": "Priya Sharma",
+    "date": "Dec 16, 2025",
+    "readTime": "9 min",
+    "likes": 158,
+    "details": {
+      "sections": [
+        {
+          "title": "Validating Your Idea",
+          "content": "Before building a startup, it's crucial to validate the product idea. Engage with potential users, gather feedback, and ensure there is a real market need. Avoid building complex features before understanding what solves the user's problem effectively."
+        },
+        {
+          "title": "Handling Technical Debt",
+          "content": "Side projects often accumulate quick fixes and shortcuts. When transitioning to a startup, prioritize refactoring critical parts of the codebase to ensure stability and maintainability. Technical debt can hinder scaling and slow down development."
+        },
+        {
+          "title": "User Feedback Loops",
+          "content": "Actively seek user feedback to iterate on your product. Implement analytics and monitoring to understand usage patterns, feature adoption, and pain points. Feedback-driven development ensures your product evolves to meet real user needs."
+        },
+        {
+          "title": "Scaling Decisions",
+          "content": "As your project grows, make deliberate choices around architecture, team composition, and workflow. Building a scalable system early can save headaches later. Invest in proper documentation, automated tests, and modular design."
+        },
+        {
+          "title": "Conclusion",
+          "content": "Turning a side project into a startup is a journey that requires careful planning, technical discipline, and user-centric thinking. By validating ideas, managing technical debt, and scaling wisely, developers can successfully transform passion projects into sustainable businesses."
+        }
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "type": "blog",
+    "title": "Effective Time Management for Developers",
+    "category": "Lifestyle",
+    "description": "Learn practical time management techniques tailored for developers to balance work, side projects, and personal life without burnout.",
+    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900",
+    "author": "Michael Lee",
+    "date": "Dec 17, 2025",
+    "readTime": "6 min",
+    "likes": 210,
+    "details": {
+      "sections": [
+        {
+          "title": "Introduction",
+          "content": "Time management is essential for developers who juggle work, personal projects, and learning. Proper planning and prioritization help reduce stress and increase productivity, allowing developers to achieve more in less time."
+        },
+        {
+          "title": "Techniques for Effective Time Management",
+          "content": "Use methods like time-blocking, Pomodoro technique, and task prioritization. Tools such as Todoist, Notion, or Trello help in organizing tasks. Setting realistic goals and breaking down projects into smaller tasks ensures progress and reduces overwhelm."
+        },
+        {
+          "title": "Maintaining Work-Life Balance",
+          "content": "Avoid burnout by allocating time for rest, hobbies, and exercise. Learning to say no and delegating tasks can help maintain a healthy balance between professional and personal life."
+        },
+        {
+          "title": "Conclusion",
+          "content": "Effective time management empowers developers to stay productive without compromising personal well-being. By adopting structured techniques and respecting personal boundaries, developers can achieve both professional success and life satisfaction."
+        }
+      ]
+    }
+  },
+   {
+    "id": 9,
+    "type": "video",
+    "title": "Tears of Steel",
+    "category": "video",
+    "description": "Tears of Steel was realized with crowd-funding by users of the open source 3D creation tool Blender.",
+    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+    "thumbnail": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/TearsOfSteel.jpg",
+    "author": "Blender Foundation",
+    "date": "Dec 18, 2025",
+    "likes": 0
+  },
+  {
+    "id": 10,
+    "type": "blog",
+    "title": "React Hooks Best Practices",
+    "category": "Education",
+    "description": "A detailed guide on how to effectively use React Hooks like useState, useEffect, and custom hooks in real-world projects.",
+    "image": "https://newhorizonindia.edu/wp-content/uploads/2025/10/download-20-1024x683.png",
+    "author": "Code Academy",
+    "date": "Dec 19, 2025",
+    "readTime": "7 min",
+    "likes": 325,
+    "details": {
+      "sections": [
+        {
+          "title": "Introduction",
+          "content": "React Hooks provide a modern approach to managing state and side effects in functional components. They simplify complex component logic, improve readability, and enable code reuse through custom hooks."
+        },
+        {
+          "title": "Using useState and useEffect",
+          "content": "useState is used to declare state variables, while useEffect manages side effects like fetching data or subscribing to events. Proper use of dependency arrays prevents unnecessary re-renders and improves performance."
+        },
+        {
+          "title": "Custom Hooks",
+          "content": "Custom hooks allow developers to extract and reuse component logic. For example, a useFetch hook can handle API requests across multiple components, reducing code duplication and improving maintainability."
+        },
+        {
+          "title": "Best Practices",
+          "content": "Keep hooks at the top level of components, follow naming conventions starting with 'use', and avoid calling hooks conditionally. These practices ensure consistent behavior and prevent common errors."
+        },
+        {
+          "title": "Conclusion",
+          "content": "By understanding and following React Hooks best practices, developers can write cleaner, reusable, and maintainable code. Hooks simplify state management and side effect handling, making React applications more robust and scalable."
+        }
+      ]
+    }
+  }
+]
