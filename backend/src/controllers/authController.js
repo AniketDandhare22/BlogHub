@@ -27,7 +27,8 @@ export const register =async (req,res)=>{
         res.cookie("token", token, {
         httpOnly: true,
         secure: true,       // REQUIRED: Tells browser "This is safe for HTTPS"
-        sameSite: 'None',   // REQUIRED: Tells browser "Allow this cross-domain"
+        sameSite: 'None', 
+        path: "/",      // REQUIRED: Tells browser "Allow this cross-domain"
         maxAge: 1 * 24 * 60 * 60 * 1000 // (Optional) Matches your 1d token expiry
         });
         res.status(201).json({user: { username: user.username, email: user.email }});
@@ -58,7 +59,8 @@ export const login =async (req,res)=>{
         res.cookie("token", token, {
         httpOnly: true,
         secure: true,       // CRITICAL for Vercel
-        sameSite: 'None',   // CRITICAL for Cross-origin
+        sameSite: 'None',
+        path: "/",       // CRITICAL for Cross-origin
         maxAge: cookieDuration // <--- This applies the checkbox logic
         });
         
@@ -85,7 +87,8 @@ export const logout = (req, res) => {
     res.clearCookie("token", {
         httpOnly: true,
         secure: true,       // ⚠️ MUST match the login setting
-        sameSite: "None",   // ⚠️ MUST match the login setting
+        sameSite: "None",
+        path: "/",       // ⚠️ MUST match the login setting
     });
 
     res.status(200).json({ message: "Logged out successfully" });

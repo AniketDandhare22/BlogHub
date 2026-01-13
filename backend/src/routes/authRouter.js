@@ -27,8 +27,9 @@ Router.get(
     // 2. Set Cookie (CRITICAL FIXES HERE)
     res.cookie("token", token, {
       httpOnly: true, 
-      sameSite: "None",  // CHANGED: "strict" -> "None" (Required for cross-site)
-      secure: true,      // CHANGED: false -> true (Required when sameSite is None)
+      sameSite: "None",  
+      secure: true,  
+      path: "/",            
       maxAge: 7 * 24 * 60 * 60 * 1000 
     });
 
