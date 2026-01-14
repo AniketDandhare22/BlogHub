@@ -2,6 +2,7 @@
 
 <div align="center">
   <img src="./Blog/src/assets/logo.png" alt="BlogHub Logo" width="150" height="150">
+  <img src="./ScreenShot/Gemini_Generated_Image_raafpwraafpwraaf.png" alt="BlogHub Logo" width="1100" height="650">
   
   <h3 align="center">Read. Write. Create.</h3>
   
@@ -58,5 +59,20 @@ Follow these steps to run the project on your local machine.
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/AniketDandhare22/BlogHub.git](https://github.com/AniketDandhare22/BlogHub.git)
+git clone https://github.com/AniketDandhare22/BlogHub.git
 cd BlogHub
+cd "blog (frontend)"
+npm run dev
+cd ..
+cd backend
+npm start
+```
+
+### ScreenShot
+**Update** currently the app is not supporting cookie sharing (third party) only for chrome so allow Third party ,for rest browser it will work fine 
+
+<img src="./ScreenShot/Screenshot 2026-01-08 161215.png" alt="BlogHub Logo" width="1100" height="650">
+<img src="./ScreenShot/Screenshot 2026-01-14 082051.png" alt="BlogHub Logo" width="1100" height="650">
+<img src="./ScreenShot/Screenshot 2026-01-14 082222.png" alt="BlogHub Logo" width="1100" height="650">
+<img src="./ScreenShot/Screenshot 2026-01-14 082331.png" alt="BlogHub Logo" width="1100" height="650">
+<img src="./ScreenShot/Screenshot 2026-01-14 082406.png" alt="BlogHub Logo" width="1100" height="650">
