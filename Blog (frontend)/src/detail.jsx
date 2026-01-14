@@ -80,10 +80,10 @@ function Detail() {
     
     if (!post) {
     return (
-      <div className="w-full min-h-screen  bg-secondaryD light:bg-secondary ">
+      <div className="w-full min-h-screen flex bg-secondaryD light:bg-secondary ">
         <Navbar/>
         <div className="items-center justify-center flex-col w-full h-full">
-          <img className="w-10 animate-pulse" src="./assets/Screenshot 2026-01-14 234006.png" alt="" />
+          <img className="w-50 animate-pulse" src="./assets/Screenshot 2026-01-14 234006.png" alt="" />
           <span className="loading-dots px-2 text-lg font-semibold text-orange-400 light:text-purple-800">Loading </span>
         </div>
       </div>
