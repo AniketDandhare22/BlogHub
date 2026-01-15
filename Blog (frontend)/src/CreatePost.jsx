@@ -402,7 +402,7 @@ function Create() {
                       : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG12TWtneOcT2713QuqUyVZewzHzcQf3tTgQ&s"
                   }
                   alt="Preview"
-                  className="w-full h-56 object-cover rounded-lg mb-4"
+                  className="w-full object-cover rounded-lg mb-4"
                 />
 
                 <p className="text-sm opacity-70 mb-4">
