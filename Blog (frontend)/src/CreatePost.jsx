@@ -10,7 +10,7 @@ import Gen from "./component/Generatinganimate.jsx"
 
  // AI icon
 function Create() {
-  const { user,isAuth} = useAuth();
+  const { user,isAuth, setUser } = useAuth();
   const { dark } = useContext(ThemeData);
   const [posting, setPosting] = useState(false);
   const [genload, setGenload ] = useState(false);
@@ -40,8 +40,7 @@ function Create() {
       alert("First LogIn/SignIn for posting!");
       navigate("/auth");
     }
-    if(user.aiToken===0){navigate("/price")}
-  }, [isAuth, navigate,user.aiToken]);
+  }, [isAuth, navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -99,6 +98,7 @@ function Create() {
           const res = await api.post("/aiFeature/generate-post",{title , category ,detail});
           setTitle(res.data.result.title);
           setDetail(res.data.result.content);
+          setUser(res.data.User);
         } catch (err) {
           console.error(
             "Not Generated! Try Again",
@@ -116,6 +116,7 @@ function Create() {
         const res = await api.post("/aiFeature/generate-post-image",{ prompt : title+category});
         setGeneratedImage(res.data.imageUrl);
         setShowPreviewConfirm(true);
+        setUser(res.data.User);
       } catch (err) {
         console.error(
           "Not Generated! Try Again",
