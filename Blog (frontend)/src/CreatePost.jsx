@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { FaUpload } from "react-icons/fa";
 import {useAuth} from "./context/AuthProvider"
 import api from "./api/api"
+import Gen from "./component/Generatinganimate"
 
  // AI icon
 function Create() {
@@ -431,16 +432,24 @@ function Create() {
             </div>
           )}
 
-          {aigenload && <div className="absolute flex gap-3 rounded-xl text-lg text-black bg-white bottom-0 right-0 m-7 p-1 px-10">
+          {aigenload && 
+          <div className="absolute flex gap-3 rounded-xl text-lg text-black bg-white bottom-0 right-0 m-7 p-1 px-10">
               <img className="w-5" src="https://staging.svgrepo.com/show/15477/coin.svg" alt="Png File Svg - Coins Icon Png Clipart@pikpng.com"></img> 1 Credit Deduted
           </div>}
           {aigenload &&<p className="absolute top-1/8 left-3/10 text-sm mt-1 ml-1"><span className="loading-dots px-2">Powered By Gemini 2.5 </span></p>}
+          {aigenload &&
+          <div className="absolute inset-0 flex items-center justify-center z-50">
+            <Gen />
+          </div>}
           
           {genload && <div className="absolute flex gap-3 rounded-xl text-lg text-black bg-white bottom-0 right-0 m-7 p-1 px-10">
               <img className="w-5" src="https://staging.svgrepo.com/show/15477/coin.svg" alt="Png File Svg - Coins Icon Png Clipart@pikpng.com"></img> 2 Credit Deduted
           </div>}
           {genload &&<p className="absolute top-1/8 left-6/10 text-sm mt-1 ml-1"><span className="loading-dots px-2">Powered By Dale.E </span></p>}
-
+          {genload &&
+          <div className="absolute inset-0 flex items-center justify-center z-50">
+            <Gen />
+          </div>}
 
         </div>
       )}

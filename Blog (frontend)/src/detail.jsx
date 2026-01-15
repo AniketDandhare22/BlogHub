@@ -80,29 +80,30 @@ function Detail() {
     
     if (!post) {
     return (
-      <div className={` ${!dark?"light":""} w-full h-screen flex flex-col bg-secondaryD light:bg-secondary`}>
+      <div className={`${!dark ? "light" : ""} w-full h-screen flex flex-col bg-secondaryD light:bg-secondary`}>
         <Navbar />
-        
-        {/* Main Content Area */}
-        <div className="flex flex-col items-center justify-center w-full gap-6">
 
-          {/* Text & Dots Container */}
-          <Loader className="scale-35"/>
+        {/* Main Content Area */}
+        <div className="flex-1 flex flex-col items-center justify-center gap-6">
+
+          <Loader className="scale-35" />
+
           <div className="flex items-end gap-1">
-            <span className="text-lg  tracking-widest text-orange-400 light:text-purple-800 uppercase">
+            <span className="text-lg tracking-widest text-orange-400 light:text-purple-800 uppercase">
               Loading
             </span>
-            
-            {/* Custom Bouncing Dots using Tailwind delays */}
+
+            {/* Bouncing dots */}
             <div className="flex gap-1 mb-1">
-              <div className="h-1 w-1 bg-logo light:bg-purple-800 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-              <div className="h-1 w-1 bg-logo light:bg-purple-800 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-              <div className="h-1 w-1 bg-logo light:bg-purple-800 rounded-full animate-bounce"></div>
+              <div className="h-1 w-1 bg-logo light:bg-purple-800 rounded-full animate-bounce [animation-delay:-0.3s]" />
+              <div className="h-1 w-1 bg-logo light:bg-purple-800 rounded-full animate-bounce [animation-delay:-0.15s]" />
+              <div className="h-1 w-1 bg-logo light:bg-purple-800 rounded-full animate-bounce" />
             </div>
           </div>
 
         </div>
       </div>
+
     );
   }
 
