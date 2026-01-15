@@ -7,10 +7,11 @@ import { FaUpload } from "react-icons/fa";
 import {useAuth} from "./context/AuthProvider"
 import api from "./api/api"
 import Gen from "./component/Generatinganimate.jsx"
+import { toast } from "react-toastify";
 
  // AI icon
 function Create() {
-  const { user,isAuth} = useAuth();
+  const { user,isAuth ,setUser} = useAuth();
   const { dark } = useContext(ThemeData);
   const [posting, setPosting] = useState(false);
   const [genload, setGenload ] = useState(false);
@@ -18,7 +19,7 @@ function Create() {
   const navigate = useNavigate();
   const [angle, setAngle] = useState(0);
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("Select Category");
+  const [category, setCategory] = useState("Other");
   const [detail, setDetail] = useState("");
   const [image, setImage] = useState(null);
   const [generatedImage, setGeneratedImage] = useState(null);
@@ -98,6 +99,8 @@ function Create() {
           const res = await api.post("/aiFeature/generate-post",{title , category ,detail});
           setTitle(res.data.result.title);
           setDetail(res.data.result.content);
+          toast.warning(res.data.message);
+          setUser(prev => ({...prev,aiToken: res.data.Token}));
         } catch (err) {
           console.error(
             "Not Generated! Try Again",
@@ -115,6 +118,8 @@ function Create() {
         const res = await api.post("/aiFeature/generate-post-image",{ prompt : title+category});
         setGeneratedImage(res.data.imageUrl);
         setShowPreviewConfirm(true);
+        toast.info(res.data.message);
+        setUser(prev => ({...prev,aiToken: res.data.Token}));
       } catch (err) {
         console.error(
           "Not Generated! Try Again",
@@ -270,7 +275,7 @@ function Create() {
                 required
                 className="w-[20%] mb-4 px-4 font-semibold py-2 rounded-md bg-secondaryD light:bg-primary  focus:outline-none focus:ring-2 focus:ring-logo light:focus:ring-logo2"
                 >
-                <option value="Select">Select Category</option>
+                <option >Select Category</option>
                 <option value="Technology">Techonlogy</option>
                 <option value="Design">Design</option>
                 <option value="Business">Business</option>

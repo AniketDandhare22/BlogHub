@@ -95,7 +95,7 @@ export const generatePostImage = async (req, res) => {
         const user = await userModel.findById(req.userId).select("-password");;
 
         // 1. Check Tickets
-        if (user.plan !== "Pro" && user.ticket < 2) {
+        if (user.plan !== "Pro" && user.aiToken < 2) {
              return res.status(403).json({ message: "Not enough tickets (Cost: 2)" });
         }
         console.log("⚡ Generating with Qwen-Image-Lightning...");
@@ -131,7 +131,8 @@ export const generatePostImage = async (req, res) => {
         res.json({ 
             success: true, 
             imageUrl: result.secure_url,
-            message: "Image Generated Successfully!" 
+            Token: user.aiToken,
+            message: "2tk Deducted, Image-Gen" 
         });
 
     } catch (error) {
