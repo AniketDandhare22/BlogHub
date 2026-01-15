@@ -86,8 +86,8 @@ function Detail() {
         {/* Main Content Area */}
         <div className="flex flex-col items-center justify-center w-full gap-6">
 
-          <Loader/>
           {/* Text & Dots Container */}
+          <Loader className="scale-35"/>
           <div className="flex items-end gap-1">
             <span className="text-lg  tracking-widest text-orange-400 light:text-purple-800 uppercase">
               Loading
