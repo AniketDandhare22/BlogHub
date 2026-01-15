@@ -10,7 +10,7 @@ const HomeSkeleton = () => {
     <div className={`h-screen w-full flex flex-col ${!dark ? "light" : ""} overflow-hidden`}>
       
       {/* Keep Navbar static or make a skeleton for it too */}
-      <div className="h-10 w-full bg-txPrimary light:bg-secondary"></div>
+      <div className="h-15 w-full bg-secondaryD light:bg-secondary"></div>
 
       <div className="w-full flex flex-row overflow-hidden h-full">
         
