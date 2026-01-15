@@ -40,7 +40,7 @@ function Create() {
       alert("First LogIn/SignIn for posting!");
       navigate("/auth");
     }
-    if(user?.aiToken){navigate("/price")}
+    if(user.aiToken===0){navigate("/price")}
   }, [isAuth, navigate,user.aiToken]);
 
     const handleSubmit = async (e) => {
@@ -384,9 +384,9 @@ function Create() {
 
           
           {showPreviewConfirm && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+            <div className="fixed inset-0 z-50 flex items-center h-full justify-center bg-black/70">
               
-              <div className="bg-primaryD light:bg-white w-[90%] max-w-6xl max-h-4/5 rounded-xl p-5 shadow-xl relative">
+              <div className="bg-primaryD light:bg-white w-[90%] h-[80%] max-w-6xl max-h-4/5 rounded-xl p-5 shadow-xl relative">
 
                 <h3 className="text-lg font-semibold mb-3">
                   Use this image?
