@@ -10,7 +10,7 @@ const HomeSkeleton = () => {
     <div className={`h-screen w-full flex flex-col ${!dark ? "light" : ""} overflow-hidden`}>
       
       {/* Keep Navbar static or make a skeleton for it too */}
-      <Navbar /> 
+      <div className="h-10 w-full bg-txPrimary light:bg-secondary"></div>
 
       <div className="w-full flex flex-row overflow-hidden h-full">
         
@@ -19,8 +19,8 @@ const HomeSkeleton = () => {
             {/* Fake Menu Items */}
             {[...Array(5)].map((_, i) => (
                 <div key={i} className="flex items-center gap-4 animate-pulse">
-                    <div className="w-6 h-6 rounded bg-gray-700 light:bg-gray-300"></div>
-                    <div className="h-4 w-32 rounded bg-gray-700 light:bg-gray-300"></div>
+                    <div className="w-10 h-10 rounded bg-gray-700 light:bg-gray-300"></div>
+                    <div className="h-6 w-40 rounded bg-gray-700 light:bg-gray-300"></div>
                 </div>
             ))}
         </div>

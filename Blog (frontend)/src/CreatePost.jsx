@@ -17,14 +17,6 @@ function Create() {
   const [aigenload, aisetGenload ] = useState(false);
   const navigate = useNavigate();
   const [angle, setAngle] = useState(0);
-
-    useEffect(() => {
-        // Update the angle continuously
-        const interval = setInterval(() => {
-        setAngle(prev => (prev + 4) % 360); // increase 2 degrees per tick
-        }, 30); 
-        return () => clearInterval(interval);
-    }, []);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("Select Category");
   const [detail, setDetail] = useState("");
@@ -34,6 +26,14 @@ function Create() {
   const [video, setVideo] = useState("");
   const [videoError, setVideoError] = useState(false);
 
+  
+  useEffect(() => {
+          // Update the angle continuously
+          const interval = setInterval(() => {
+          setAngle(prev => (prev + 4) % 360); // increase 2 degrees per tick
+          }, 30); 
+          return () => clearInterval(interval);
+      }, []);
 
   useEffect(() => {
     if (!isAuth) {
@@ -53,7 +53,7 @@ function Create() {
           if(category==="Select Category"){setCategory("Other")}
           formData.append("category", category);
           if(category==="Video"){
-            formData.append("video", video);
+            formData.append("Video", video);
           }
 
           if (generatedImage) {
