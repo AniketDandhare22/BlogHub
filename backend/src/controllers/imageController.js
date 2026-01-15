@@ -92,7 +92,7 @@ export const uploadAvatar = async (req, res) => {
 export const generatePostImage = async (req, res) => {
     try {
         const {prompt} = req.body;
-        const user = await userModel.findById(req.userId);
+        const user = await userModel.findById(req.userId).select("-password");;
 
         // 1. Check Tickets
         if (user.plan !== "Pro" && user.ticket < 2) {
@@ -131,7 +131,7 @@ export const generatePostImage = async (req, res) => {
         res.json({ 
             success: true, 
             imageUrl: result.secure_url,
-            User:user.aiToken, 
+            user, 
             message: "Image Generated Successfully!" 
         });
 
