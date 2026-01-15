@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { FaUpload } from "react-icons/fa";
 import {useAuth} from "./context/AuthProvider"
 import api from "./api/api"
-import Gen from "./component/Generatinganimate"
+import Gen from "./component/Generatinganimate.jsx"
 
  // AI icon
 function Create() {
