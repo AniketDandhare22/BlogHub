@@ -98,7 +98,7 @@ function Create() {
           const res = await api.post("/aiFeature/generate-post",{title , category ,detail});
           setTitle(res.data.result.title);
           setDetail(res.data.result.content);
-          setUser(res.data.user);
+          setUser(res.data.User);
         } catch (err) {
           console.error(
             "Not Generated! Try Again",
@@ -116,7 +116,7 @@ function Create() {
         const res = await api.post("/aiFeature/generate-post-image",{ prompt : title+category});
         setGeneratedImage(res.data.imageUrl);
         setShowPreviewConfirm(true);
-        setUser(res.data.user);
+        setUser(res.data.User);
       } catch (err) {
         console.error(
           "Not Generated! Try Again",

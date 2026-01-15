@@ -52,7 +52,7 @@ export const generatePost = async (req, res) => {
         res.status(200).json({ 
             success: true, 
             result: jsonResponse, 
-            user, 
+            User:user, 
             message: "Generated with Gemini 2.5" 
         });
 

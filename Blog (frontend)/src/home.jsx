@@ -12,7 +12,7 @@ import HomeSkeleton from "./component/HomeSkeleton";
 
 function Home() {
     const [collapsed, setCollapsed] = useState(false);
-    const {isAuth } = useAuth();
+    const {isAuth,loading } = useAuth();
     const { dark} = useTheme();
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);   
@@ -20,7 +20,6 @@ function Home() {
     const [query, setQuery] = useState("");
     const [query2, setQuery2] = useState("");
     const [recentPosts, setRecentPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
     useEffect(() => {
       if (!isAuth) return;
       api.get("/post/recent")
@@ -34,7 +33,6 @@ function Home() {
       api.get("/post/")
         .then(res => setPosts(res.data.post ))
         .catch(() => setPosts([]))
-        .finally(setLoading(false));
       api.get("/post/mine")
         .then(res => setMyposts(res.data ?? []))
         .catch(() => setMyposts([]));
