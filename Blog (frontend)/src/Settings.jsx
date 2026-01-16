@@ -285,7 +285,7 @@ function Settings() {
           <SettingItem 
             icon={<HiKey />} 
             label="Change Password"  
-            onClick={() =>{alert("Upcoming Feature!")}}  
+            onClick={() =>{toast.info("Upcoming Feature!")}}  
           />
           <SettingItem 
             icon={<HiTrash />} 

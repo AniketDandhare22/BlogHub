@@ -5,17 +5,18 @@ import { useState,useEffect } from "react";
 import {useAuth} from "./context/AuthProvider"
 import { loadRazorpay } from "./utils/loadRazorpay";
 import api from "./api/api"
+import { toast } from "react-toastify";
 
 
 const startPayment = async (planType ,isAuth) => {
   if (!isAuth) {
-    alert("Please login to continue");
+    toast.info("Please login to continue");
     return;
   }
 
   const res = await loadRazorpay();
   if (!res) {
-    alert("Razorpay SDK failed to load");
+    toast.error("Razorpay SDK failed to load");
     return;
   }
 
@@ -26,7 +27,7 @@ const startPayment = async (planType ,isAuth) => {
 
 
     if (!orderData.success) {
-      alert("Order creation failed");
+      toast.error("Order creation failed");
       return;
     }
 
@@ -52,10 +53,10 @@ const startPayment = async (planType ,isAuth) => {
 
 
         if (verifyData.success) {
-          alert("Payment successful 🎉");
+          toast.success("Payment successful 🎉");
           window.location.reload();
         } else {
-          alert("Payment verification failed");
+          toast.error("Payment verification failed");
         }
       },
 
@@ -68,7 +69,7 @@ const startPayment = async (planType ,isAuth) => {
     rzp.open();
   } catch (err) {
     console.error(err);
-    alert("Something went wrong");
+    toast.error("Something went wrong");
   }
 };
 
@@ -206,7 +207,7 @@ function Pricing() {
                   text-white transition
                 "
                 onClick={()=>{
-                  user.plan!=="Pro"?startPayment("Plus" ,isAuth):alert("You are already a Pro Member! Enjoy")}
+                  user.plan!=="Pro"?startPayment("Plus" ,isAuth):toast.info("You are already a Pro Member! Enjoy")}
                 }
               >
                 Upgrade to Plus
@@ -258,7 +259,7 @@ function Pricing() {
             
                   {/* Button */}
                   <button className=" active:scale-97 relative z-10 w-full border border-white/10 py-3 rounded-xl light:bg-logo2/50 bg-triaryD text-logo hover:text-white light:hover:text-primaryD  hover:bg-logo  light:text-black  light:hover:bg-logo2 transition font-semibold "
-                      onClick={()=>{user.plan!=="Pro"?startPayment("Pro" ,isAuth):alert("You are already a Pro Member! Enjoy")}}
+                      onClick={()=>{user.plan!=="Pro"?startPayment("Pro" ,isAuth):toast.info("You are already a Pro Member! Enjoy")}}
 
                   >
                       Upgrade to Pro

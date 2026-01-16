@@ -8,6 +8,7 @@ import api from "./api/api"
 import { FiSun, FiMoon } from "react-icons/fi";
 import { useTheme } from "./context/useTheme";
 import {useAuth } from "./context/AuthProvider"
+import { toast } from "react-toastify";
 
 function App() {
   const [form, setForm] = useState({
@@ -83,7 +84,7 @@ function App() {
         console.error("Auth Error:", err);
         // Safe access to error message
         const errorMsg = err.response?.data?.message || "Authentication failed";
-        alert(errorMsg);
+        toast.error(errorMsg);
       } finally {
         setLoading(false);
       }

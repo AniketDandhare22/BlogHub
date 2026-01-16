@@ -254,7 +254,7 @@ function Detail() {
                       {user && (
                         <div className="flex gap-2">
                           <button
-                            onClick={() => alert("Upcoming feature")}
+                            onClick={() => toast.info("Upcoming feature")}
                             className="px-8 flex py-2 items-center gap-2 border-white/30  light:text-black border rounded-lg
                                       bg-logo/70 light:bg-logo2/70 hover:bg-green-500
                                       text-white transition"

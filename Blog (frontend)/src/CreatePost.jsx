@@ -38,7 +38,7 @@ function Create() {
 
   useEffect(() => {
     if (!isAuth) {
-      alert("First LogIn/SignIn for posting!");
+      toast.warning("First LogIn/SignIn for posting!");
       navigate("/auth");
     }
   }, [isAuth, navigate]);
