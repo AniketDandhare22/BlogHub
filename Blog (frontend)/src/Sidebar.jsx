@@ -18,7 +18,7 @@ function Sidebar({ theme ,task  }) {
   return (
     <div className="flex flex-col h-full"> 
     <aside className={`w-full bg-transparent p-4 hidden md:block ${!theme ? "light" : ""}`}>
-      <h2 className="text-2xl flex hover:text-logo light:hover:text-logo2 active:scale-97 justify-center font-semibold light:text-primaryD text-primary mt-3 mb-4">
+      <h2 className="text-2xl flex hover:text-logo light:hover:text-logo2 active:scale-97 justify-center font-semibold light:text-primaryD text-primary mb-4">
         Categories
       </h2>
     {/* Divider */}
