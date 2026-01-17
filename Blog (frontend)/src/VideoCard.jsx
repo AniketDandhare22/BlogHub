@@ -75,7 +75,7 @@ function VideoCard({ data, theme }) {
       }}
     >
       {/* VIDEO */}
-      <div className="relative w-full lg:h-110 md:h-110 h-16 bg-black">
+      <div className="relative w-full lg:h-110 md:h-110 h-160 bg-black">
         <video
           ref={videoRef}
           src={data.Video}
