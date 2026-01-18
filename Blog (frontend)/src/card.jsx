@@ -72,33 +72,27 @@ function BlogCard({ data, theme }) {
 
         {/* Meta */}
         <div className="flex items-center justify-between text-sm text-white light:text-primaryD pt-2">
-          <div className="flex items-center gap-1">
-            <span className="py-1 px-3 rounded-full text-white light:text-black
-            bg-secondaryD/70 light:bg-secondary
-            hover:bg-secondaryD light:hover:bg-gray-200 transition">👤 {data.author || "Anonymous"}</span>
-            <span  className="py-1 px-3  rounded-full text-white light:text-black
-            bg-secondaryD/70 light:bg-secondary
-            hover:bg-secondaryD light:hover:bg-gray-200 transition"> {data.likes.length} Likes</span>
-          </div>
+          {/* Actions */}
+            <div className="flex gap-3 pt-3">
+              <span className="px-3 py-1 text-sm rounded-lg
+                bg-secondaryD/70 light:bg-secondary
+                hover:bg-secondaryD light:hover:bg-gray-200 transition">👤 {data.author || "Anonymous"}
+              </span>
+              <button className="px-3 py-1 text-sm rounded-lg
+                bg-secondaryD/70 light:bg-secondary
+                hover:bg-secondaryD light:hover:bg-gray-200 transition">
+                ❤️ {data.likes.length}
+              </button>
+              <button className="px-3 py-1 text-sm rounded-lg
+                bg-secondaryD/70 light:bg-secondary
+                hover:bg-secondaryD light:hover:bg-gray-200 transition">
+                🔗 Share
+              </button>
+            </div>
           <span>🕛 {getDaysSincePost(data.createdAt)} days</span>
         </div>
 
-        {/* Actions */}
-        <div className="flex gap-3 pt-3">
-          <button className="px-3 py-1 text-sm rounded-lg
-            text-white light:text-black
-            bg-secondaryD/70 light:bg-secondary
-            hover:bg-secondaryD light:hover:bg-gray-200 transition">
-            ❤️ {data.likes.length}
-          </button>
-
-          <button className="px-3 py-1 text-sm rounded-lg
-            text-white light:text-black
-            bg-secondaryD/70 light:bg-secondary
-            hover:bg-secondaryD light:hover:bg-gray-200 transition">
-            🔗 Share
-          </button>
-        </div>
+        
       </div>
     </div>
   );
