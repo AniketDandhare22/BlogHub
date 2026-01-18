@@ -3,17 +3,12 @@ import { CATEGORIES } from "./data/categories";
 
 const daysAgo = (createdAt) => {
   if (!createdAt) return "Unknown";
-
-  const createdTime = new Date(createdAt).getTime();
-  const now = Date.now();
-
-  const diffInMs = now - createdTime;
-  const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-
-  if (diffInDays === 0) return "Today";
-  if (diffInDays === 1) return "1 day ago";
-
-  return `${diffInDays} days ago`;
+  const date = new Date(createdAt);
+      return date.toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      });
 };
 
 
@@ -75,8 +70,8 @@ function BlogCard({ data, theme }) {
         {/* Meta */}
         <div className="flex items-center justify-between text-xs text-gray-500 pt-2">
           <div className="flex items-center gap-2">
-            <span>👤 {data.user || "Anonymous"}</span>
-            <span>• {data.date}</span>
+            <span>👤 {data.author || "Anonymous"}</span>
+            <span>• {data.likes.length}</span>
           </div>
           <span>⏱ {daysAgo(data.createdAt)}</span>
         </div>
