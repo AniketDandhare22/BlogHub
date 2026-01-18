@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { CATEGORIES } from "./data/categories";
 
-const daysAgo = (createdAt) => {
-  if (!createdAt) return "Unknown";
-  const date = new Date(createdAt);
-      return date.toLocaleDateString("en-IN", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      });
+const getDaysSincePost = (createdAt) => {
+      const postDate = new Date(createdAt);
+      const today = new Date();
+
+      postDate.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
+
+      const diffDays =
+        Math.floor((today - postDate) / (1000 * 60 * 60 * 24)) + 1;
+
+      return diffDays;
 };
 
 
@@ -68,12 +71,12 @@ function BlogCard({ data, theme }) {
         </p>
 
         {/* Meta */}
-        <div className="flex items-center justify-between text-xs text-gray-500 pt-2">
+        <div className="flex items-center justify-between text-sm text-white light:text-primaryD pt-2">
           <div className="flex items-center gap-2">
-            <span>👤 {data.author || "Anonymous"}</span>
-            <span>• {data.likes.length}</span>
+            <span className="p-1 rounded-full bg-white/10 light:bg-primary ">👤 {data.author || "Anonymous"}</span>
+            <span  className="p-1 rounded-full bg-white/10 light:bg-primary"> {data.likes.length} Likes</span>
           </div>
-          <span>⏱ {daysAgo(data.createdAt)}</span>
+          <span>🕛 {getDaysSincePost(data.createdAt)} days</span>
         </div>
 
         {/* Actions */}
