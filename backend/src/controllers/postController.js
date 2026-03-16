@@ -118,9 +118,9 @@ export const getPostId = async (req, res) => {
     }
 
     const postObj = post.toObject();
-    postObj.likes = post.likes.length;
+    postObj.likesCount = post.likes.length;
     postObj.isLiked = isLiked;
-    res.status(200).json(postObj);
+    res.json(postObj);
 
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -145,7 +145,7 @@ export const handleLike = async (req, res) => {
             isLiked = true;
         }
         await post.save();
-        res.status(200).json({ likes: post.likes.length , isLiked });
+        res.status(200).json({ likesCount: post.likes.length, isLiked });
     } catch (err) {
         res.status(401).json({ message: err.message });
     }
