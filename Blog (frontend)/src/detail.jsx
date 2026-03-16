@@ -264,7 +264,7 @@ function Detail() {
                       </div>
 
                       {/* Right: Actions */}
-                      {user && (
+                      {user.username === post.author && (
                         <div className="flex gap-2">
                           <button
                             onClick={() => toast.info("Upcoming feature")}
