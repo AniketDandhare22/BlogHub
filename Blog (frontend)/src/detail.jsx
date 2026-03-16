@@ -17,7 +17,10 @@ function Detail() {
   const { dark } = useTheme();
   const navigate = useNavigate();
   const {id} = useParams();
-  const [post, setPost] = useState(null);   
+  const [post, setPost] = useState({
+    likes: 0,
+    isLiked: false
+  }); 
 
     // ✅ Hooks must ALWAYS run
     useEffect(() => {
