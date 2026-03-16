@@ -22,9 +22,12 @@ function Detail() {
     // ✅ Hooks must ALWAYS run
     useEffect(() => {
       api.get(`/post/find/${id}`)
-        .then(res => setPost(res.data ?? []))
+        .then(res => {
+          console.log("POST DATA:", res.data); // debug
+          setPost(res.data);
+        })
         .catch(() => setPost(null));
-    }, []);
+    }, [id]);
 
 
     const handleLike = async () => {
