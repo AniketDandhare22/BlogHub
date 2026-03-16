@@ -117,11 +117,10 @@ export const getPostId = async (req, res) => {
       await user.save();
     }
 
-    res.status(200).json({
-      ...post.toObject(),
-      likes: post.likes.length,
-      isLiked
-    });
+    const postObj = post.toObject();
+    postObj.likes = post.likes.length;
+    postObj.isLiked = isLiked;
+    res.status(200).json(postObj);
 
   } catch (err) {
     res.status(400).json({ message: err.message });
