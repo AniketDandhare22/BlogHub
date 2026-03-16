@@ -137,12 +137,18 @@ export const handleLike = async (req, res) => {
 
         let isLiked =false;
         // prevent duplicate likes
-        if (post.likes.includes(req.userId)) {
-            post.likes = post.likes.filter(id => id.toString() !== req.userId);
-            isLiked = false;
+        const liked = post.likes.some(
+          likeId => likeId.toString() === req.userId
+        );
+
+        if (liked) {
+          post.likes = post.likes.filter(
+            likeId => likeId.toString() !== req.userId
+          );
+          isLiked = false;
         } else {
-            post.likes.push(req.userId);
-            isLiked = true;
+          post.likes.push(req.userId);
+          isLiked = true;
         }
         await post.save();
         res.status(200).json({ likesCount: post.likes.length, isLiked });
