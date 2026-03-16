@@ -19,11 +19,9 @@ function Detail() {
   const {id} = useParams();
   const [post, setPost] = useState(null); 
 
-    // ✅ Hooks must ALWAYS run
     useEffect(() => {
       api.get(`/post/find/${id}`)
         .then(res => {
-          console.log("POST DATA:", res.data); // debug
           setPost(res.data);
         })
         .catch(() => setPost(null));
