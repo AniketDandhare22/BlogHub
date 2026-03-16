@@ -125,7 +125,7 @@ export const handleLike = async (req, res) => {
             isLiked = true;
         }
         await post.save();
-        res.status(200).json({ likes: post.likes.length , isLiked });
+        res.status(200).json({ likes: post.likes , isLiked });
     } catch (err) {
         res.status(401).json({ message: err.message });
     }
