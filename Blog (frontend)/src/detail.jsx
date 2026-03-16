@@ -180,7 +180,7 @@ function Detail() {
                         </span>
                       </div>
                     </div>
-
+                  {console.log(post.isLiked)};
                   {/* Actions */}
                   <div className="flex gap-3">
                     {post.likes && (

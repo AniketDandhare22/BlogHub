@@ -115,7 +115,7 @@ export const handleLike = async (req, res) => {
         const post = await postModel.findById(id);
         if (!post) return res.status(404).json({ message: "Post not found! to like" });
 
-        let isLiked;
+        let isLiked =false;
         // prevent duplicate likes
         if (post.likes.includes(req.userId)) {
             post.likes = post.likes.filter(id => id.toString() !== req.userId);
