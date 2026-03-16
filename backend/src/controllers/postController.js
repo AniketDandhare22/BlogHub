@@ -89,7 +89,7 @@ export const getPostId = async (req, res) => {
   try {
     const post = await postModel
       .findById(id)
-      .populate("creator", "username profilePic");
+      .populate("creator", "username profilePic email");
 
     if (!post) return res.status(404).json({ message: "Post not found" });
 
