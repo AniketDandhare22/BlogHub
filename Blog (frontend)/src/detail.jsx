@@ -33,6 +33,7 @@ function Detail() {
         setPost(prev => ({
           ...prev,
           likes: res.data.likes,
+          isLiked: res.data.isLiked
         }));
       } catch (err) {
         console.error(err);
@@ -182,13 +183,25 @@ function Detail() {
 
                   {/* Actions */}
                   <div className="flex gap-3">
-                    {post.likes && (
-                      <button className="flex items-center gap-1 px-4 py-2 text-sm rounded-lg text-white light:text-black light:bg-secondary bg-secondaryD/70 light:hover:bg-secondary transition"
-                      onClick={handleLike}>
-                        ❤️ {post.likes.length}
+                    {typeof post.likes === "number" && (
+                      <button
+                        className={`flex items-center gap-1 px-4 py-2 text-sm rounded-lg ${
+                          post.isLiked
+                            ? "bg-pink-300 text-black hover:bg-pink-200"
+                            : "text-white light:text-black light:bg-secondary bg-secondaryD/70 hover:bg-secondaryD light:hover:bg-secondary"
+                        } transition`}
+                        onClick={handleLike}
+                      >
+                        {post.isLiked ? "❤️ Liked" : `🤍 ${post.likes}`}
                       </button>
                     )}
-                    <button className="flex items-center gap-1 px-4 py-2 text-sm rounded-lg text-white light:text-black light:bg-secondary bg-secondaryD/70 hover:bg-secondaryD  light:hover:bg-secondary  transition">
+                    <button className="flex items-center gap-1 px-4 py-2 text-sm rounded-lg text-white light:text-black light:bg-secondary bg-secondaryD/70 hover:bg-secondaryD  light:hover:bg-secondary  transition active:bg-zinc-300 active:text-black"
+                    onClick={async()=>{
+                      const url = window.location.href;
+                      await navigator.clipboard.writeText(url);
+                      toast.dark("Link copied to clipboard");
+                    }}
+                    >
                       🔗 Share
                     </button>
                   </div>

@@ -115,14 +115,17 @@ export const handleLike = async (req, res) => {
         const post = await postModel.findById(id);
         if (!post) return res.status(404).json({ message: "Post not found! to like" });
 
+        let isLiked;
         // prevent duplicate likes
         if (post.likes.includes(req.userId)) {
             post.likes = post.likes.filter(id => id.toString() !== req.userId);
+            isLiked = false;
         } else {
             post.likes.push(req.userId);
+            isLiked = true;
         }
         await post.save();
-        res.status(200).json({ likes: post.likes });
+        res.status(200).json({ likes: post.likes.length , isLiked });
     } catch (err) {
         res.status(401).json({ message: err.message });
     }

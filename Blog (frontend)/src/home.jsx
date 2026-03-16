@@ -224,9 +224,9 @@ function Home() {
                       <div
                         key={post._id}
                         onClick={() => navigate(`/detail/${post._id}`)}
-                        className="flex gap-3 p-3 rounded-xl bg-primaryD/60
-                                  light:bg-secondary hover:bg-primaryD/80
-                                  transition cursor-pointer"
+                        className="flex gap-3 p-3 rounded-xl  bg-primaryD/60 light:bg-secondary
+                                 hover:bg-primaryD/80 transition cursor-pointer light:hover:shadow-xl
+                                 light:hover:bg-primary "
                       >
                         <img
                           src={post.postMedia || "https://picsum.photos/80/80"}
