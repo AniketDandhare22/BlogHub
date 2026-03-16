@@ -91,35 +91,36 @@ export const getPostId = async (req, res) => {
       .findById(id)
       .populate("creator", "username profilePic");
 
-    if (!post)
-      return res.status(404).json({ message: "Post not found" });
+    if (!post) return res.status(404).json({ message: "Post not found" });
 
     let isLiked = false;
 
     if (req.userId) {
-      isLiked = post.likes.some(
+      // ✅ FIX: Add optional chaining (?.) just in case 'likes' is missing from older posts
+      isLiked = post.likes?.some(
         likeId => likeId.toString() === req.userId
-      );
+      ) || false;
     }
 
-    // update recent posts only if user exists
-    const user = await userModel.findById(req.userId);
-
-    if (user) {
-      user.recentPost = user.recentPost.filter(
-        pid => pid.toString() !== post._id.toString()
-      );
-
-      user.recentPost.unshift(post._id);
-
-      user.recentPost = user.recentPost.slice(0, 6);
-
-      await user.save();
+    // ✅ FIX: Only attempt to update recent posts if the user is actually logged in
+    if (req.userId) {
+      const user = await userModel.findById(req.userId);
+      if (user) {
+        user.recentPost = user.recentPost.filter(
+          pid => pid.toString() !== post._id.toString()
+        );
+        user.recentPost.unshift(post._id);
+        user.recentPost = user.recentPost.slice(0, 6);
+        await user.save();
+      }
     }
 
     const postObj = post.toObject();
-    postObj.likesCount = post.likes.length;
+    
+    // ✅ FIX: Fallback to 0 if 'likes' array doesn't exist on this document
+    postObj.likesCount = post.likes?.length || 0;
     postObj.isLiked = isLiked;
+    
     res.json(postObj);
 
   } catch (err) {
