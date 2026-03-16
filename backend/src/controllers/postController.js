@@ -83,29 +83,50 @@ export const getMypost=async (req,res)=>{
     }
 }
 
-export const getPostId =async (req,res)=>{
-    const {id} = req.params;
-    try{
-        const post =await postModel.findById(id).populate("creator", "username profilePic");
-        if(!post) return res.status(404).json({ message: "Post not found" });
-        let user = await userModel.findById(req.userId);
-        if(!user) res.status(200).json(post);
-        // remove if already exists
-        user.recentPost = user.recentPost.filter(
-          id => id.toString() !== post._id.toString()
-        );
+export const getPostId = async (req, res) => {
+  const { id } = req.params;
 
-        // add to front (newest first)
-        user.recentPost.unshift(post._id);
+  try {
+    const post = await postModel
+      .findById(id)
+      .populate("creator", "username profilePic");
 
-        // cap to 4
-        user.recentPost = user.recentPost.slice(0, 6);
-        await user.save();
-        res.status(200).json(post);
-    }catch(err){
-        res.status(400).json({ message: err.message });
+    if (!post)
+      return res.status(404).json({ message: "Post not found" });
+
+    let isLiked = false;
+
+    if (req.userId) {
+      isLiked = post.likes.some(
+        likeId => likeId.toString() === req.userId
+      );
     }
-}
+
+    // update recent posts only if user exists
+    const user = await userModel.findById(req.userId);
+
+    if (user) {
+      user.recentPost = user.recentPost.filter(
+        pid => pid.toString() !== post._id.toString()
+      );
+
+      user.recentPost.unshift(post._id);
+
+      user.recentPost = user.recentPost.slice(0, 6);
+
+      await user.save();
+    }
+
+    res.status(200).json({
+      ...post.toObject(),
+      likes: post.likes.length,
+      isLiked
+    });
+
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
 
 //handle like logic
 export const handleLike = async (req, res) => {

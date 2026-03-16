@@ -183,10 +183,16 @@ function Detail() {
                   {console.log(post.isLiked)};
                   {/* Actions */}
                   <div className="flex gap-3">
-                    {post.likes && (
-                      <button className={`flex items-center gap-1 px-4 py-2 text-sm rounded-lg ${post.isLiked ?"bg-pink-300 text-black hover:bg-pink-200":" text-white light:text-black light:bg-secondary bg-secondaryD/70 hover:bg-secondaryD  light:hover:bg-secondary"} transition   `}
-                      onClick={handleLike}>
-                        {post.isLiked ? "❤️ Liked" : `🤍 ${post.likes.length}`}
+                    {post.likes !== undefined && (
+                      <button
+                        className={`flex items-center gap-1 px-4 py-2 text-sm rounded-lg ${
+                          post.isLiked
+                            ? "bg-pink-300 text-black hover:bg-pink-200"
+                            : "text-white light:text-black light:bg-secondary bg-secondaryD/70 hover:bg-secondaryD light:hover:bg-secondary"
+                        }`}
+                        onClick={handleLike}
+                      >
+                        {post.isLiked ? `❤️ ${post.likes}` : `🤍 ${post.likes}`}
                       </button>
                     )}
                     <button className="flex items-center gap-1 px-4 py-2 text-sm rounded-lg text-white light:text-black light:bg-secondary bg-secondaryD/70 hover:bg-secondaryD  light:hover:bg-secondary  transition active:bg-zinc-300 active:text-black"
