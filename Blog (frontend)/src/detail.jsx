@@ -17,16 +17,13 @@ function Detail() {
   const { dark } = useTheme();
   const navigate = useNavigate();
   const {id} = useParams();
-  const [post, setPost] = useState({
-    likes: 0,
-    isLiked: false
-  }); 
+  const [post, setPost] = useState(null); 
 
     // ✅ Hooks must ALWAYS run
     useEffect(() => {
       api.get(`/post/find/${id}`)
         .then(res => setPost(res.data ?? []))
-        .catch(() => setPost([]));
+        .catch(() => setPost(null));
     }, []);
 
 
@@ -194,7 +191,7 @@ function Detail() {
                         }`}
                         onClick={handleLike}
                       >
-                        {post.isLiked ? `❤️ Liked` : `🤍 ${post.likes.length}`}
+                        {post.isLiked ? `❤️ Liked` : `🤍 ${post.likes}`}
                       </button>
                     )}
                     <button className="flex items-center gap-1 px-4 py-2 text-sm rounded-lg text-white light:text-black light:bg-secondary bg-secondaryD/70 hover:bg-secondaryD  light:hover:bg-secondary  transition active:bg-zinc-300 active:text-black"
