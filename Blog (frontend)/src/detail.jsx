@@ -87,22 +87,7 @@ function Detail() {
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col items-center justify-center gap-6">
-
-          <Loader className="scale-35" />
-
-          <div className="flex items-end gap-1">
-            <span className="text-lg tracking-widest text-orange-400 light:text-purple-800 uppercase">
-              Loading
-            </span>
-
-            {/* Bouncing dots */}
-            <div className="flex gap-1 mb-1">
-              <div className="h-1 w-1 bg-logo light:bg-purple-800 rounded-full animate-bounce [animation-delay:-0.3s]" />
-              <div className="h-1 w-1 bg-logo light:bg-purple-800 rounded-full animate-bounce [animation-delay:-0.15s]" />
-              <div className="h-1 w-1 bg-logo light:bg-purple-800 rounded-full animate-bounce" />
-            </div>
-          </div>
-
+          <Loader className="scale-25" />
         </div>
       </div>
 
