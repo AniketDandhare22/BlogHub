@@ -3,7 +3,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import connectDb from './config/mongoose-config.js';
-
+import { authLimiter, apiLimiter } from "./middlewares/rateLimiter.js";
 import authRoute from "./routes/authRouter.js";
 import postRoute from "./routes/postRouter.js";
 import paymentRoute from "./routes/paymentRoute.js";
@@ -33,8 +33,8 @@ app.use(passport.initialize());
 connectDb();
 
 /* ✅ Routes */
-app.use("/auth", authRoute);
-app.use("/post", postRoute);
+app.use("/auth", authLimiter, authRoute);      // strict
+app.use("/post", apiLimiter, postRoute);       // normal
 app.use("/aiFeature", generatorRoute);
 app.use("/payment", paymentRoute);
 
