@@ -25,7 +25,7 @@ function Detail() {
           setPost(res.data);
         })
         .catch(() => setPost(null));
-    }, [id]);
+    }, []);
 
 
     const handleLike = async () => {
