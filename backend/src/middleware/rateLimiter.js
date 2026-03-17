@@ -2,8 +2,8 @@ import rateLimit from "express-rate-limit";
 
 /* 🔒 Auth limiter (strict) */
 export const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 5,
+  windowMs: 10 * 60 * 1000,
+  max: 10,
 
   handler: (req, res) => {
     res.status(429).json({
@@ -14,6 +14,6 @@ export const authLimiter = rateLimit({
 
 /* 🌐 General API limiter */
 export const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
+  windowMs: 10 * 60 * 1000,
+  max: 1000,
 });
