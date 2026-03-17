@@ -109,7 +109,7 @@ function App() {
             <div className="w-[50%] h-full items-center flex flex-row px-2 cursor-pointer animate-bounce" onClick={()=>{navigate('/')}}>
            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 48 48">
               <path 
-                fill={!status ? "#B35F15" : "#8639D3"} 
+                fill={!status ? "#FF6900" : "#8639D3"} 
                 d="M37,42H11c-2.761,0-5-2.239-5-5V11c0-2.761,2.239-5,5-5h26c2.761,0,5,2.239,5,5v26 C42,39.761,39.761,42,37,42z"
               />
               <path 
