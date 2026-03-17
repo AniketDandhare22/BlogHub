@@ -14,7 +14,7 @@ function Sidebar({ theme ,task  }) {
     { name: "Education", icon: <FiBook />, color: "text-pink-600", bg: "bg-pink-100" },
     { name: "Video", icon: <FiVideo />, color: "text-cyan-500", bg: "bg-cyan-100" },
     { name: "Other", icon: <MdApps />, color: "text-gray-500", bg: "bg-gray-100" },
-    { name: "Liked Post", icon: <FaHeart />, color: "text-purple-400", bg: "bg-purple-100" },
+    { name: "Liked Posts", icon: <FaHeart />, color: "text-purple-400", bg: "bg-purple-100" },
   ];
 
   return (
