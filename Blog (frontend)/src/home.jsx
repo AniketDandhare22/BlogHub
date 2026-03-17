@@ -12,7 +12,7 @@ import HomeSkeleton from "./component/HomeSkeleton";
 
 function Home() {
     const [collapsed, setCollapsed] = useState(false);
-    const {isAuth,loading } = useAuth();
+    const {isAuth,loading,user } = useAuth();
     const { dark} = useTheme();
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);   
@@ -40,7 +40,7 @@ function Home() {
 
      const filteredPosts =useMemo (() => {
         const now = Date.now();
-        const oneWeek = 7 * 24 * 60 * 60 * 1000;
+        const oneWeek = 20 * 24 * 60 * 60 * 1000;
 
         // 🔥 TRENDING
         if (query2 === "Trending") {
@@ -101,6 +101,20 @@ function Home() {
               post.title?.toLowerCase().includes(query.toLowerCase()) ||
               post.detail?.toLowerCase().includes(query.toLowerCase())
           );
+        }
+        
+        if (query2 === "Liked Posts") {
+          return posts.filter((post) => {
+            const isLiked = post.likes?.some(
+              (id) => id.toString() === user._id
+            );
+
+            const matchesSearch =
+              post.title?.toLowerCase().includes(query.toLowerCase()) ||
+              post.detail?.toLowerCase().includes(query.toLowerCase());
+
+            return isLiked && matchesSearch;
+          });
         }
 
         return base;

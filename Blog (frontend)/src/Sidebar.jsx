@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FiHome, FiTrendingUp, FiCpu, FiEdit, FiBriefcase, FiHeart, FiBook ,FiVideo ,FiUser} from 'react-icons/fi';
 import { MdApps } from "react-icons/md";
+import { FaHeart} from "react-icons/fa";
 function Sidebar({ theme ,task  }) {
   const [activeItem, setActiveItem] = useState("All Posts");
   const items = [
@@ -13,6 +14,7 @@ function Sidebar({ theme ,task  }) {
     { name: "Education", icon: <FiBook />, color: "text-pink-600", bg: "bg-pink-100" },
     { name: "Video", icon: <FiVideo />, color: "text-cyan-500", bg: "bg-cyan-100" },
     { name: "Other", icon: <MdApps />, color: "text-gray-500", bg: "bg-gray-100" },
+    { name: "Liked Post", icon: <FaHeart />, color: "text-purple-400", bg: "bg-purple-100" },
   ];
 
   return (
@@ -59,7 +61,7 @@ function Sidebar({ theme ,task  }) {
         task("My Posts");
       }}
       className={`
-        lg:flex md:flex pl-12 items-center gap-3 py-2  absolute bottom-7 w-[87%]  rounded-lg cursor-pointer
+        lg:flex md:flex justify-center items-center gap-3 py-2  absolute bottom-7 w-[87%]  rounded-lg cursor-pointer
         transition text-xl hidden active:scale-97
         ${
           activeItem === "My Posts"
