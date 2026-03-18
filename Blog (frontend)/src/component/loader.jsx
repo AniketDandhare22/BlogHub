@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/useTheme";
 
 const Loader = () => {
-  const { dark } = useTheme(); // ✅ inside component
+  const { dark } = useTheme(); 
 
   return (
     <StyledWrapper dark={dark}>
