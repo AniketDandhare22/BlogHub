@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTheme } from "../context/ThemeContext";
 
+const { dark } = useTheme();
 const Loader = () => {
   return (
     <StyledWrapper>
@@ -31,12 +33,12 @@ const StyledWrapper = styled.div`
   }
 
   .cube_x {
-    background-color: blueviolet;
+    background-color: ${({ $dark }) => ($dark ? 'white' : 'blueviolet')};
     animation: animateLoaders 1s infinite;
   }
 
   .cube_y {
-    background-color: darkorange;
+    background-color: ${({ $dark }) => ($dark ? 'darkorange' : '#EAEDEF')};
     animation: animateLoaders 1s 0.5s infinite;
   }
 

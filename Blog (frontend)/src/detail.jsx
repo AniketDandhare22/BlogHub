@@ -25,7 +25,7 @@ function Detail() {
           setPost(res.data);
         })
         .catch(() => setPost(null));
-    }, []);
+    }, [id]);
 
 
     const handleLike = async () => {
@@ -80,7 +80,7 @@ function Detail() {
       });
     };
     
-    if (!post) {
+    if (!post && isAuth) {
     return (
       <div className={`${!dark ? "light" : ""} w-full h-screen flex flex-col bg-secondaryD light:bg-secondary`}>
         <Navbar />
