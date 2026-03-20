@@ -9,10 +9,10 @@
   <p align="center">
     A modern, full-stack publishing platform featuring <b>AI Image Generation</b>, video streaming, and tiered subscriptions.
     <br />
-    <a href="[https://your-bloghub.vercel.app](https://blog-hub-pearl.vercel.app/)"><strong>View Live Demo »</strong></a>
+    <a href="https://blog-hub-pearl.vercel.app/"><strong>View Live Demo »</strong></a>
     <br />
     <br />
-    <a href="[https://your-bloghub.vercel.app](https://blog-hub-pearl.vercel.app/)">View Demo</a>
+    <a href="https://blog-hub-pearl.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/AniketDandhare22/BlogHub/issues">Report Bug</a>
     ·
