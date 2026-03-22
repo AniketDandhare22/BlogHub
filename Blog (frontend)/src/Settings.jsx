@@ -29,7 +29,7 @@ const formatDate = (date) => {
 const planLabel = (user) => {
   if (!user) return "Free";
   if (user.plan === "Pro") return "Pro ⭐";
-  if (user.plan === "Plus") return "Plus";
+  if (user.plan === "Plus") return "Plus 🤜🏻🤛🏻";
   return "Free";
 };
 
