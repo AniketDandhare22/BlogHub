@@ -2,8 +2,11 @@ import { useState } from "react";
 import { FiHome, FiTrendingUp, FiCpu, FiEdit, FiBriefcase, FiHeart, FiBook ,FiVideo ,FiUser} from 'react-icons/fi';
 import { MdApps } from "react-icons/md";
 import { FaHeart} from "react-icons/fa";
+import { toast } from "react-toastify";
+import {useAuth} from "./context/AuthProvider"
 function Sidebar({ theme ,task  }) {
   const [activeItem, setActiveItem] = useState("All Posts");
+  const {isAuth} = useAuth();
   const items = [
     { name: "All Posts", icon: <FiHome />, color: "text-logo light:text-logo2 hover:animate-float", bg: "bg-orange-100 light:bg-purple-100" },
     { name: "Trending", icon: <FiTrendingUp />, color: "text-red-600", bg: "bg-red-100" },
@@ -30,6 +33,10 @@ function Sidebar({ theme ,task  }) {
           <li
             key={item.name}
             onClick={() => {
+              if(!isAuth && item.name==="Liked Posts"){
+                toast.error("Please Login to Access Liked Posts");
+                return;
+              }
               setActiveItem(item.name);
               task(item.name);
             }} 
