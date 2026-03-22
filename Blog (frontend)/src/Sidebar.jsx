@@ -35,7 +35,6 @@ function Sidebar({ theme ,task  }) {
             onClick={() => {
               if(!isAuth && item.name==="Liked Posts"){
                 toast.error("Please Login to Access Liked Posts");
-                return;
               }
               setActiveItem(item.name);
               task(item.name);
