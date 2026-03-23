@@ -20,6 +20,18 @@ function Home() {
     const [query, setQuery] = useState("");
     const [query2, setQuery2] = useState("");
     const [recentPosts, setRecentPosts] = useState([]);
+    const texts = query2 ? [query2, "Latest Blog Posts"] : ["Latest Blog Posts"];
+    const [headingIndex, setHeadingIndex] = useState(0);
+    useEffect(() => {
+      if (!query2) return;
+
+      const interval = setInterval(() => {
+        setHeadingIndex((prev) => (prev + 1) % texts.length);
+      }, 3000);
+
+      return () => clearInterval(interval);
+    }, [query2]);
+
     useEffect(() => {
       if (!isAuth) return;
       api.get("/post/recent")
@@ -167,8 +179,15 @@ function Home() {
             <div className={`w-full flex flex-wrap justify-center h-screen custom-scroll ${dark?"bg-secondaryD":"bg-secondary"} overflow-y-auto overflow-x-hidden`}>
               <div className="w-full max-w-[850px] m-10 flex justify-between">
                 <div className="h-20">
-                  <h1 className={`text-4xl mb-2  ${!query2?"light:hover:text-logo2 hover:text-logo":"text-gray-400 light:text-gray-600"}`}>
-                    {query2?query2:"Latest Blog Posts"}
+                  <h1
+                    key={headingIndex}
+                    className={`text-4xl mb-2 animate-heading ${
+                      !query2
+                        ? "light:hover:text-logo2 hover:text-logo"
+                        : "text-gray-400 light:text-gray-600"
+                    }`}
+                  >
+                    {texts[headingIndex]}
                   </h1>
                   <p className={`light:text-secondaryD text-secondary`}>
                     Discover stories, thinking, and expertise from writers on any topic.

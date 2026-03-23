@@ -1,5 +1,13 @@
 @import "tailwindcss";
 @custom-variant light (&:where(.light, .light *));
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-heading {
+  animation: fadeSlide 0.5s ease-in-out;
+}
 
 /* Scrollbar size */
 .custom-scroll::-webkit-scrollbar {
