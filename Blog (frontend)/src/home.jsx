@@ -167,12 +167,15 @@ function Home() {
             <div className={`w-full flex flex-wrap justify-center h-screen custom-scroll ${dark?"bg-secondaryD":"bg-secondary"} overflow-y-auto overflow-x-hidden`}>
               <div className="w-full max-w-[850px] m-10 flex justify-between">
                 <div className="h-20">
-                  <h1 className={`text-4xl mb-2 light:text-primaryD text-primary light:hover:text-logo2 hover:text-logo`}>
-                    Latest Blog Posts
+                  <h1 className={`text-4xl mb-2  ${!query2?"light:hover:text-logo2 hover:text-logo":"text-gray-400 light:text-gray-600"}`}>
+                    {query2?query2:"Latest Blog Posts"}
                   </h1>
                   <p className={`light:text-secondaryD text-secondary`}>
                     Discover stories, thinking, and expertise from writers on any topic.
                   </p>
+                  {query2 && <p className={`text-xs text-gray-500`}>
+                      Caterory Selected - {query2}
+                  </p>}
                 </div>
                 <div className={`px-4 py-2 rounded-lg h-10lg:h-10 md: h-15 justify-center items-center flex light:text-txSecondary text-txSecondaryD bg-primaryD light:bg-white font-bold border-2 border-transparent hover:border-logo light:hover:border-logo2`}>
                   {filteredPosts.length} posts
