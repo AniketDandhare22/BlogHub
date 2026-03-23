@@ -193,7 +193,7 @@ function Home() {
                     Discover stories, thinking, and expertise from writers on any topic.
                   </p>
                   {query2 && <p className={`text-xs text-gray-500`}>
-                      Caterory Selected - {query2}
+                      Category Selected - {query2}
                   </p>}
                 </div>
                 <div className={`px-4 py-2 rounded-lg h-10lg:h-10 md: h-15 justify-center items-center flex light:text-txSecondary text-txSecondaryD bg-primaryD light:bg-white font-bold border-2 border-transparent hover:border-logo light:hover:border-logo2`}>
