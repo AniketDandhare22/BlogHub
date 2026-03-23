@@ -36,8 +36,10 @@ function Sidebar({ theme ,task  }) {
               if(!isAuth && item.name==="Liked Posts"){
                 toast.error("Please Login to Access Liked Posts");
               }
-              setActiveItem(item.name);
-              task(item.name);
+              else{
+                setActiveItem(item.name);
+                task(item.name);
+              }
             }} 
             className={`
               flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer
