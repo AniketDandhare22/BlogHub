@@ -19,6 +19,36 @@ function Detail() {
   const {id} = useParams();
   const [post, setPost] = useState(null); 
 
+  //Detail formating
+  const formatContent = (text) => {
+    return text.split("\n").map((line, index) => {
+      const trimmed = line.trim();
+
+      if (trimmed.startsWith("**") && trimmed.endsWith("**")) {
+        return (
+          <h3
+            key={index}
+            className="text-xl font-semibold my-4 light:text-txPrimary text-white"
+          >
+            {trimmed.slice(2, -2)}
+          </h3>
+        );
+      }
+
+      if (trimmed === "") return null;
+
+      return (
+        <p
+          key={index}
+          className="text-base light:text-txSecondary text-txSecondaryD leading-relaxed mb-2"
+        >
+          {trimmed}
+        </p>
+      );
+    });
+  };
+
+  
     useEffect(() => {
       api.get(`/post/find/${id}`)
         .then(res => {
@@ -202,9 +232,9 @@ function Detail() {
 
 
 
-                <p className="text-base light:text-txSecondary text-txSecondaryD leading-relaxed">
-                  {post.detail}
-                </p>
+                <div>
+                  {formatContent(post.detail)}
+                </div>
 
                 {/* Render sections if blog has details */}
                 {post.details?.sections?.map((section, idx) => (
