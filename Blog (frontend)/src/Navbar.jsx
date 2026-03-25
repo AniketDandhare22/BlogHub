@@ -132,9 +132,9 @@ function Navbar({setQuery}){
                                 user?.plan === "Pro"
                                     ? "bg-gradient-to-r from-blue-400 to-pink-400 light:text-white text-primaryD"
                                     : user?.plan === "Plus"
-                                    ? "bg-gradient-to-r from-teal-500 to-cyan-400 light:text-white text-primaryD"
+                                    ? `bg-gradient-to-r from-teal-500 to-cyan-400 light:text-white text-primaryD ${dark?"from-cyan-500  to-yellow-400":"from-cyan-500  to-purple-500"}`
                                     : "bg-gray-500 text-white"
-                                }
+                                } 
                             `}
                             >
                             {
