@@ -148,7 +148,7 @@ function Edit() {
     }
   };
 
-  if(passedPostData._id!== user._id){
+  if(passedPostData._id!== user.id){
     toast.error("😡 UnAuthorised To Edit!");
     navigate('/');
   }
