@@ -279,12 +279,12 @@ function Detail() {
                       </div>
 
                       {/* Right: Actions */}
-                      {user.username === post.author && (
+                      {user._id === post._id && (
                         <div className="flex gap-2">
                           <button
                             onClick={() => navigate(`/edit/${post._id}`,{ state: { postData: post } })}
-                            className="px-8 flex py-2 items-center gap-2 border-white/30  light:text-black border rounded-lg
-                                      bg-logo/70 light:bg-logo2/70 hover:bg-green-500
+                            className="px-8 flex py-2 items-center gap-2 rounded-lg
+                                      bg-logo light:bg-logo2 hover:bg-green-500
                                       text-white transition"
                           >
                             <FaEdit size={18} /> Edit
@@ -292,7 +292,7 @@ function Detail() {
 
                           <button
                             onClick={() => handleDelete(post._id)}
-                            className="px-8 flex items-center gap-2 py-2 text border border-white/30 rounded-lg
+                            className="px-8 flex items-center gap-2 py-2 text rounded-lg
                                       bg-secondaryD light:bg-secondary hover:bg-red-500
                                       text-white light:text-black transition"
                           > 

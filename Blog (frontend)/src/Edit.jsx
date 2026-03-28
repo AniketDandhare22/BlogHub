@@ -148,9 +148,10 @@ function Edit() {
     }
   };
 
-  // If the current user doesn't own the post, you might want to boot them out
-  // if (passedPostData && user.username !== passedPostData.author) { navigate("/"); }
-
+  if(passedPostData._id!== user._id){
+    toast.error("😡 UnAuthorised To Edit!");
+    navigate('/');
+  }
   return (
     <>
       {isAuth && (

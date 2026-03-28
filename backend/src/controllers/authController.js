@@ -31,7 +31,7 @@ export const register =async (req,res)=>{
         path: "/",      // REQUIRED: Tells browser "Allow this cross-domain"
         maxAge: 1 * 24 * 60 * 60 * 1000 // (Optional) Matches your 1d token expiry
         });
-        res.status(201).json({user: { username: user.username, email: user.email }});
+        res.status(201).json({user: { username: user.username, email: user.email ,id :user._id }});
     }
     catch(err){
         res.status(400).json({ message: err.message });
@@ -64,7 +64,7 @@ export const login =async (req,res)=>{
         maxAge: cookieDuration // <--- This applies the checkbox logic
         });
         
-        res.status(200).json({user: { username: checkUser.username, email: checkUser.email } });
+        res.status(200).json({user: { username: checkUser.username, email: checkUser.email ,id :checkUser._id} });
 
     }
     catch(err){
