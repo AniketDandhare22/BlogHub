@@ -7,6 +7,7 @@ import { useAuth } from "./context/AuthProvider";
 import api from "./api/api";
 import Gen from "./component/Generatinganimate.jsx";
 import { toast } from "react-toastify";
+import post from "../../backend/src/models/post.js";
 
 function Edit() {
   const { user, isAuth, setUser } = useAuth();
@@ -176,16 +177,16 @@ function Edit() {
                   <div className="flex flex-col">
                     <span className="font-bold text-sm">{user?.username || "Author"}</span>
                     <span className="text-xs text-gray-400 light:text-gray-500">Editing Post</span>
+                    <span className="text-xs text-gray-400 light:text-gray-500">Created on ${passedPostData.createdAt}</span>
                   </div>
                 </div>
 
                 {/* Right Side: Action Buttons Row */}
                 <div className="flex flex-wrap items-center justify-start md:justify-end gap-3 w-full md:w-auto">
                   <div className="group/textBtn active:scale-97 py-2 px-4 rounded-lg
-                               bg-gray-800 hover:bg-gray-700 light:bg-gray-100 light:hover:bg-white
                                transition font-semibold flex items-center justify-center overflow-hidden gap-2"
                     >
-                    Edit the Post
+                    <span className="loading-dots px-2">Editing Post</span>
                   </div>
                   {/* Text Helper AI Button */}
                   <button
