@@ -27,7 +27,6 @@ function Edit() {
   const [title, setTitle] = useState(passedPostData?.title || "");
   const [category, setCategory] = useState(passedPostData?.category || "Other");
   const [detail, setDetail] = useState(passedPostData?.detail || "");
-  const [video, setVideo] = useState(passedPostData?.Video || "");
   const [image, setImage] = useState(null); // Keep null for new file uploads
   const [generatedImage, setGeneratedImage] = useState(null);
   
@@ -41,7 +40,6 @@ function Edit() {
           setTitle(res.data.title);
           setCategory(res.data.category);
           setDetail(res.data.detail);
-          if (res.data.Video) setVideo(res.data.Video);
         })
         .catch(() => {
             toast.error("Could not fetch post details")
@@ -76,9 +74,7 @@ function Edit() {
       if (category === "Select Category") { setCategory("Other"); }
       formData.append("category", category);
       
-      if (category === "Video") {
-        formData.append("Video", video);
-      }
+      
 
       if (generatedImage) {
         formData.append("imageUrl", generatedImage);
@@ -185,7 +181,7 @@ function Edit() {
                   <div className="group/textBtn active:scale-97 py-2 px-4 rounded-lg
                                transition font-semibold flex items-center justify-center overflow-hidden gap-2"
                     >
-                    <span className="loading-dots px-2">Editing Post</span>
+                    <span className=" px-2">Editing Post . . . </span>
                   </div>
                   {/* Text Helper AI Button */}
                   <button
@@ -267,7 +263,6 @@ function Edit() {
                   <option value="Business">Business</option>
                   <option value="Lifestyle">Lifestyle</option>
                   <option value="Education">Education</option>
-                  <option value="Video">Video</option>
                   <option value="Other">Other</option>
                 </select>
 
@@ -294,7 +289,7 @@ function Edit() {
               />
             )}
 
-            {category === "Video" && toast.error("Sorry, Working on Video Update Feature!")}
+            {category === "Video" && toast.error("Sorry, Working on Video Update Feature!") && navigate('/')}
 
             {/* File Upload */}
             <div className="mb-2 text-xl w-full flex h-10 justify-between gap-2 ">

@@ -23,6 +23,6 @@ router.get("/recent", verifyToken, getRecentPosts);
 router.get("/find/:id",verifyToken, getPostId);
 router.put("/like/:id", verifyToken, handleLike);
 router.delete("/delete/:postId", verifyToken, deletePost);
-router.put("/update/:postId", verifyToken, updatePost);
+router.put("/update/:postId", verifyToken, upload.single("image") , updatePost);
 
 export default router;
