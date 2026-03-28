@@ -277,7 +277,7 @@ function Detail() {
                           </p>
                         </div>
                       </div>
-{console.log(user,user.id,)}
+{console.log(user,user._id,)}
                       {/* Right: Actions */}
                       {user.id === post._id && (
                         <div className="flex gap-2">
