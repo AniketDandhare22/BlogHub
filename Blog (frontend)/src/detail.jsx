@@ -142,7 +142,7 @@ function Detail() {
               {/* Post Image */}
               {post.category !== "Video"  && (
                 <div className="w-full h-[420px] overflow-hidden">
-                  <span className="md:block lg:block absolute hidden  m-3 px-3 py-1 text-xs rounded-full bg-blue-100 text-logo hover:bg-logo light:text-logo2 light:hover:bg-logo2 hover:text-white transition">
+                  <span className="md:block lg:block absolute hidden  m-3 px-3 py-1 text-xs rounded-full bg-logo  light:bg-logo2 text-white transition">
                   {post.category.toLowerCase()}
                 </span>
                   <img
