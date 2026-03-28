@@ -115,7 +115,7 @@ function Create() {
       if (genload) return; 
       setGenload(true);
       try {
-        const res = await api.post("/aiFeature/generate-post-image",{ prompt : title+category});
+        const res = await api.post("/aiFeature/generate-post-image",{ prompt : title+detail });
         setGeneratedImage(res.data.imageUrl);
         setShowPreviewConfirm(true);
         toast.info(res.data.message);

@@ -5,6 +5,7 @@ import Error from "./error";
 import Detail from "./detail";
 import Settings from "./Settings";
 import Create from "./CreatePost";
+import Edit from "./Edit";
 import Price from "./Pricing";
 import ProtectedRoute from "./routes/protectedRoute";
 import { ToastContainer } from "react-toastify";
@@ -29,6 +30,14 @@ function App() {
         element={
           <ProtectedRoute>
             <Create />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/edit/:id"
+        element={
+          <ProtectedRoute>
+            <Edit />
           </ProtectedRoute>
         }
       />
