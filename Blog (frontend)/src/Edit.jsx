@@ -186,7 +186,7 @@ function Edit() {
                   <div className="group/textBtn active:scale-97 py-2 px-4 rounded-lg
                                transition font-semibold flex items-center justify-center overflow-hidden gap-2"
                     >
-                    <span className="loading-dots px-2">Editing Post</span>
+                    Editing Post ...
                   </div>
                   {/* Text Helper AI Button */}
                   <button
