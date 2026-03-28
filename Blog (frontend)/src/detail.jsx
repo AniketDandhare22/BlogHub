@@ -276,7 +276,7 @@ function Detail() {
                         </div>
                       </div>
                       {/* Right: Actions */}
-                      {user._id === post.creator._id && (
+                      {user._id === post.creator?._id && (
                         <div className="flex gap-2">
                           <button
                             onClick={() => navigate(`/edit/${post._id}`,{ state: { postData: post } })}
