@@ -31,7 +31,18 @@ function Edit() {
   const [generatedImage, setGeneratedImage] = useState(null);
   
   const [showPreviewConfirm, setShowPreviewConfirm] = useState(false);
+    const getDaysSincePost = (createdAt) => {
+        const postDate = new Date(createdAt);
+        const today = new Date();
 
+        postDate.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
+
+        const diffDays =
+            Math.floor((today - postDate) / (1000 * 60 * 60 * 24)) + 1;
+
+        return diffDays;
+        };
   // Fallback: Fetch data if user refreshes the page and location.state is lost
   useEffect(() => {
     if (!passedPostData && id) {
@@ -172,7 +183,7 @@ function Edit() {
                   <div className="flex flex-col">
                     <span className="font-bold text-sm">{user?.username || "Author"}</span>
                     <span className="text-xs text-gray-400 light:text-gray-500">Editing Post</span>
-                    <span className="text-xs text-gray-400 light:text-gray-500">Created on ${passedPostData.createdAt}</span>
+                    <span className="text-xs text-gray-400 light:text-gray-500">Posted {getDaysSincePost(passedPostData.createdAt)} ago</span>
                   </div>
                 </div>
 
