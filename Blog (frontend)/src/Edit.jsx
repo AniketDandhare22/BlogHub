@@ -183,7 +183,7 @@ function Edit() {
                   <div className="flex flex-col">
                     <span className="font-bold text-sm">{user?.username || "Author"}</span>
                     <span className="text-xs text-gray-400 light:text-gray-500">Editing Post</span>
-                    <span className="text-xs text-gray-400 light:text-gray-500">Posted {getDaysSincePost(passedPostData.createdAt)} ago</span>
+                    <span className="text-xs text-gray-400 light:text-gray-500">Posted {getDaysSincePost(passedPostData.createdAt)} Days ago</span>
                   </div>
                 </div>
 
