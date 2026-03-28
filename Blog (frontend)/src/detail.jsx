@@ -159,7 +159,9 @@ function Detail() {
                 </div>
               )}
 
-              
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                
 
                 <div className="flex w-full items-center justify-between gap-4 text-sm light:text-txPrimary text-white">
                   {/* Left: Author Info */}
@@ -218,11 +220,9 @@ function Detail() {
                     🕛 {getDaysSincePost(post.createdAt)} days
                   </div>
 
-            </div>
+    </div>
 
 
-              {/* Content */}
-              <div className="p-6 space-y-6">
                 <span className="inline-block px-3 py-1 text-xs rounded-full bg-blue-100 text-logo hover:bg-logo light:text-logo2 light:hover:bg-logo2 hover:text-white transition">
                   {post.category.toLowerCase()}
                 </span>
