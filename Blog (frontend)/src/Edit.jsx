@@ -43,7 +43,10 @@ function Edit() {
           setDetail(res.data.detail);
           if (res.data.Video) setVideo(res.data.Video);
         })
-        .catch(() => toast.error("Could not fetch post details"));
+        .catch(() => {
+            toast.error("Could not fetch post details")
+            navigate('/');
+        });
     }
   }, [id, passedPostData]);
 
@@ -178,7 +181,12 @@ function Edit() {
 
                 {/* Right Side: Action Buttons Row */}
                 <div className="flex flex-wrap items-center justify-start md:justify-end gap-3 w-full md:w-auto">
-                  
+                  <div className="group/textBtn active:scale-97 py-2 px-4 rounded-lg
+                               bg-gray-800 hover:bg-gray-700 light:bg-gray-100 light:hover:bg-white
+                               transition font-semibold flex items-center justify-center overflow-hidden gap-2"
+                    >
+                    Edit the Post
+                  </div>
                   {/* Text Helper AI Button */}
                   <button
                     className="group/textBtn active:scale-97 py-2 px-4 rounded-lg
