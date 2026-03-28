@@ -191,10 +191,32 @@ export const updatePost = async (req, res) => {
         if (!post) {
         return res.status(404).json({ message: "Post not found" });
         }
-        // Authorization check (owner only)
-        if (post.creator.toString() !== req.userId) {
-        return res.status(403).json({ message: "Not authorized to Update this post" });
+        let imageUrl = null;
+
+        // ✅ IF IMAGE EXISTS → upload to Cloudinary
+        if (req.file) {
+          const uploadStream = (buffer) =>
+            new Promise((resolve, reject) => {
+              const stream = cloudinary.v2.uploader.upload_stream(
+                { folder: "bloghub_posts" },
+                (error, result) => {
+                  if (result) resolve(result);
+                  else reject(error);
+                }
+              );
+              streamifier.createReadStream(buffer).pipe(stream);
+            });
+
+          const result = await uploadStream(req.file.buffer);
+          imageUrl = result.secure_url;
         }
+
+        if (req.body.imageUrl) {
+          imageUrl = req.body.imageUrl;
+        }
+
+        if(imageUrl){postMedia=imageUrl}
+      
         // Update the post
         const change = await postModel.findByIdAndUpdate(
             postId,
