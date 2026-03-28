@@ -7,7 +7,6 @@ import { useAuth } from "./context/AuthProvider";
 import api from "./api/api";
 import Gen from "./component/Generatinganimate.jsx";
 import { toast } from "react-toastify";
-import post from "../../backend/src/models/post.js";
 
 function Edit() {
   const { user, isAuth, setUser } = useAuth();
@@ -186,7 +185,7 @@ function Edit() {
                   <div className="group/textBtn active:scale-97 py-2 px-4 rounded-lg
                                transition font-semibold flex items-center justify-center overflow-hidden gap-2"
                     >
-                    Editing Post ...
+                    <span className="loading-dots px-2">Editing Post</span>
                   </div>
                   {/* Text Helper AI Button */}
                   <button
