@@ -282,7 +282,7 @@ function Detail() {
                       {user.username === post.author && (
                         <div className="flex gap-2">
                           <button
-                            onClick={() => navigate(`/edit/${post.id}`,{ state: { postData: post } })}
+                            onClick={() => navigate(`/edit/${post._id}`,{ state: { postData: post } })}
                             className="px-8 flex py-2 items-center gap-2 border-white/30  light:text-black border rounded-lg
                                       bg-logo/70 light:bg-logo2/70 hover:bg-green-500
                                       text-white transition"
