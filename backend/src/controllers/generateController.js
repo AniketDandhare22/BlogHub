@@ -30,7 +30,7 @@ export const generatePost = async (req, res) => {
 
         // 2. Call Gemini 2.5 Flash (The New Standard)
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash-preview-05-20",
+            model: "gemini-2.5-flash",
             contents: prompt,
             config: {
                 responseMimeType: "application/json" // Native JSON support!
